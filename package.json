@@ -21,7 +21,7 @@
     "p-settle": "^2.0.0"
   },
   "devDependencies": {
-    "babel-preset-start": "^0.1.0",
+    "babel-preset-start": "^0.1.1",
     "eslint-config-tough": "^0.3.3",
     "husky": "^0.13.1",
     "proxyquire": "^1.7.11",
