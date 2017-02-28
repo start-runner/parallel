@@ -1,0 +1,43 @@
+{
+  "name": "start-parallel",
+  "version": "0.1.0",
+  "description": "Parallel tasks runner for Start",
+  "keywords": [
+    "start",
+    "start-task",
+    "parallel"
+  ],
+  "homepage": "https://github.com/start-runner/parallel",
+  "repository": "start-runner/parallel",
+  "author": "Kir Belevich <kir@soulshine.in> (https://github.com/deepsweet)",
+  "files": [
+    "build/"
+  ],
+  "main": "build/index.js",
+  "dependencies": {
+    "dargs": "^5.1.0",
+    "execa": "^0.6.0",
+    "minimist": "^1.2.0",
+    "p-settle": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-preset-start": "^0.1.0",
+    "eslint-config-tough": "^0.3.3",
+    "husky": "^0.13.1",
+    "proxyquire": "^1.7.11",
+    "sinon": "^1.17.7",
+    "start": "^5.1.0",
+    "start-babel-cli": "^4.0.1",
+    "start-start-preset": "^3.0.0",
+    "tape": "^4.6.0"
+  },
+  "scripts": {
+    "start": "start-runner --preset start-start-preset",
+    "prepush": "yarn start prepush",
+    "prepublish": "yarn start build"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "license": "MIT"
+}

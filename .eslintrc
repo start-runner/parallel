@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "tough/config/common",
+    "tough/config/node",
+    "tough/config/esnext"
+  ],
+  "rules": {
+    "object-curly-newline": 0,
+    "no-magic-numbers": 0,
+    "no-console": 0,
+    "id-length": 0,
+    "immutable/no-mutation": 0,
+    "promise/always-return": 0
+  }
+}
