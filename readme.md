@@ -58,11 +58,10 @@ export const tasksRunner12 = () => start(
 ```
 → parallel: start
 
-→ task1: start
-
 → task2: start
 → task2: done
 
+→ task1: start
 → task1: done
 
 → parallel: done
