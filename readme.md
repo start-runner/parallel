@@ -27,7 +27,7 @@ import parallel from 'start-parallel';
 
 const start = Start(reporter());
 
-export const tasksRunner1 = () => {
+export const tasksRunner1 = (...params) => {
   return function task1() {
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -37,7 +37,7 @@ export const tasksRunner1 = () => {
   };
 };
 
-export const tasksRunner2 = () => {
+export const tasksRunner2 = (...params) => {
   return function task2() {
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -47,11 +47,11 @@ export const tasksRunner2 = () => {
   };
 };
 
-export const tasksRunner12 = () => start(
+export const tasksRunner12 = (...params) => start(
   parallel(
-    taskRunner1,
-    taskRunner2
-  )
+    'taskRunner1',
+    'taskRunner2'
+  )(...params)
 );
 ```
 
@@ -70,4 +70,3 @@ export const tasksRunner12 = () => start(
 :heavy_exclamation_mark:
 
 * works only with exported tasks runners
-* current task runner arguments will be passed to parallel tasks runners
