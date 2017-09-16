@@ -17,14 +17,12 @@ test('parallel tasks + resolve', (t) => {
       });
     }
   }).default;
-  const testTask1 = () => {};
-  const testTask2 = () => {};
 
   start(
     parallel(
-      testTask1,
-      testTask2
-    )
+      'testTask1',
+      'testTask2'
+    )('foo', 'bar')
   ).then(() => {
     t.true(
       testSpy.calledTwice,
@@ -35,7 +33,9 @@ test('parallel tasks + resolve', (t) => {
       testSpy.firstCall.calledWithMatch([
         '--preset',
         'start-start-preset',
-        'testTask1'
+        'testTask1',
+        'foo',
+        'bar'
       ]),
       'first call must happen with testTask1 arguments'
     );
@@ -44,7 +44,9 @@ test('parallel tasks + resolve', (t) => {
       testSpy.secondCall.calledWithMatch([
         '--preset',
         'start-start-preset',
-        'testTask2'
+        'testTask2',
+        'foo',
+        'bar'
       ]),
       'first call must happen with testTask2 arguments'
     );
@@ -57,7 +59,7 @@ test('parallel tasks + first reject', (t) => {
   const testSpy = spy();
   const parallel = proxyquire('../../lib/', {
     execa(command, args) {
-      const taskName = args[args.length - 1];
+      const taskName = args[args.length - 3];
 
       testSpy(args.slice(1));
 
@@ -70,14 +72,12 @@ test('parallel tasks + first reject', (t) => {
       });
     }
   }).default;
-  const testTask1 = () => {};
-  const testTask2 = () => {};
 
   start(
     parallel(
-      testTask1,
-      testTask2
-    )
+      'testTask1',
+      'testTask2'
+    )('foo', 'bar')
   ).catch(() => {
     t.true(
       testSpy.calledTwice,
@@ -88,7 +88,9 @@ test('parallel tasks + first reject', (t) => {
       testSpy.firstCall.calledWithMatch([
         '--preset',
         'start-start-preset',
-        'testTask1'
+        'testTask1',
+        'foo',
+        'bar'
       ]),
       'first call must happen with testTask1 arguments'
     );
@@ -97,7 +99,9 @@ test('parallel tasks + first reject', (t) => {
       testSpy.secondCall.calledWithMatch([
         '--preset',
         'start-start-preset',
-        'testTask2'
+        'testTask2',
+        'foo',
+        'bar'
       ]),
       'first call must happen with testTask2 arguments'
     );
