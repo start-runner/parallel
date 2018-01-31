@@ -17,8 +17,7 @@
   "dependencies": {
     "dargs": "^5.1.0",
     "execa": "^0.8.0",
-    "minimist": "^1.2.0",
-    "p-settle": "^2.0.0"
+    "minimist": "^1.2.0"
   },
   "devDependencies": {
     "babel-preset-start": "^0.1.1",
